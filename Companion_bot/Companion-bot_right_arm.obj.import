@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Companion-bot_right_arm.obj-9a39dcd5b0ec0168f0b8ef4e0b693b38.mesh"
+
+[deps]
+
+files=[ "res://.import/Companion-bot_right_arm.obj-9a39dcd5b0ec0168f0b8ef4e0b693b38.mesh" ]
+
+source_file="res://Companion_bot/Companion-bot_right_arm.obj"
+dest_files=[ "res://.import/Companion-bot_right_arm.obj-9a39dcd5b0ec0168f0b8ef4e0b693b38.mesh", "res://.import/Companion-bot_right_arm.obj-9a39dcd5b0ec0168f0b8ef4e0b693b38.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Glock-18 Slideback.wav-46394af9bfae76319356f870b94f8a7a.sample"
+
+[deps]
+
+source_file="res://ak47/Glock-18 Slideback.wav"
+dest_files=[ "res://.import/Glock-18 Slideback.wav-46394af9bfae76319356f870b94f8a7a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,15 +1,12 @@
 extends Camera
 
+onready var fps_camera = get_parent().get_node("AK 47/FPS_camera")
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-# Called when the node enters the scene tree for the first time.
+func aim_down_sights(zoom_in):
+	if zoom_in:
+		fps_camera.make_current()
+	else:
+		self.make_current()
+		
 func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+	pass

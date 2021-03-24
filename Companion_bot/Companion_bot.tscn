@@ -1,0 +1,54 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Companion_bot/Companion-bot_right_arm_upper.png" type="Texture" id=1]
+[ext_resource path="res://Companion_bot/Companion-bot_no_arm.png" type="Texture" id=2]
+[ext_resource path="res://Companion_bot/Companion-bot_left_arm_upper.png" type="Texture" id=3]
+[ext_resource path="res://Companion_bot/Companion-bot_right_arm.png" type="Texture" id=4]
+[ext_resource path="res://Companion_bot/Companion-bot_left_arm.png" type="Texture" id=5]
+[ext_resource path="res://Companion_bot/Companion-bot_right_arm_upper.obj" type="ArrayMesh" id=6]
+[ext_resource path="res://Companion_bot/Companion-bot_no_arm.obj" type="ArrayMesh" id=7]
+[ext_resource path="res://Companion_bot/Companion-bot_right_arm.obj" type="ArrayMesh" id=8]
+[ext_resource path="res://Companion_bot/Companion-bot_left_arm.obj" type="ArrayMesh" id=9]
+[ext_resource path="res://Companion_bot/Companion-bot_left_arm_upper.obj" type="ArrayMesh" id=10]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_texture = ExtResource( 2 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_texture = ExtResource( 1 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_texture = ExtResource( 4 )
+
+[sub_resource type="SpatialMaterial" id=4]
+albedo_texture = ExtResource( 3 )
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_texture = ExtResource( 5 )
+
+[node name="Companion_bot" type="Spatial"]
+
+[node name="Companion-bot_no_arm" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.115351, 0.13774, 0.224385 )
+mesh = ExtResource( 7 )
+material/0 = SubResource( 1 )
+
+[node name="Companion-bot_right_arm_upper" type="MeshInstance" parent="Companion-bot_no_arm"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0914508, -0.06882, -0.0141189 )
+mesh = ExtResource( 6 )
+material/0 = SubResource( 2 )
+
+[node name="Companion-bot_right_arm" type="MeshInstance" parent="Companion-bot_no_arm/Companion-bot_right_arm_upper"]
+transform = Transform( 1, 0, 0, 0, 0.0298406, 0.999555, 0, -0.999555, 0.0298406, -0.107805, 2.69183, 3.41118 )
+mesh = ExtResource( 8 )
+material/0 = SubResource( 3 )
+
+[node name="Companion-bot_left_arm_upper" type="MeshInstance" parent="Companion-bot_no_arm"]
+transform = Transform( 1, 0, 0, 0, 0.99972, 0.0236645, 0, -0.0236645, 0.99972, -0.0502288, -0.0154538, 0.161883 )
+mesh = ExtResource( 10 )
+material/0 = SubResource( 4 )
+
+[node name="Companion-bot_left_arm" type="MeshInstance" parent="Companion-bot_no_arm/Companion-bot_left_arm_upper"]
+transform = Transform( 1, 0, 0, 0, 0.999893, 0.0146602, 0, -0.0146602, 0.999893, 0.113722, 0.0449882, -0.0240581 )
+mesh = ExtResource( 9 )
+material/0 = SubResource( 5 )

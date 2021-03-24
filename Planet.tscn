@@ -7,8 +7,10 @@
 [node name="Planet" type="RigidBody"]
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0 )
 shape = SubResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0 )
 mesh = SubResource( 2 )
 material/0 = null
