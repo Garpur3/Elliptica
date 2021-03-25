@@ -48,7 +48,7 @@ func resolve_input():
 	if Input.is_action_pressed("m_right"):
 		velocity += move_force* global_transform.basis.x
 	#jump:
-	if Input.is_action_just_pressed("movement_jump"):
+	if Input.is_action_just_pressed("m_jump"):
 		velocity += jump_force* global_transform.basis.y
 
 	if Input.is_action_just_pressed("aim"):

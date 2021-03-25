@@ -2,53 +2,49 @@ extends Spatial
 
 
 
-var p_id = 2
+var p_id = 0
 var gman = GMan.new()
 var planets = []
+var objects = []
+
 func _ready():
-	var planet_template = preload("res://Planet.tscn")
+	var steroid_template = preload("res://Steroid.tscn")
 	
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
-
-	var planet1 = get_node('Planet')
-	var planet2 = get_node('Planet2')
-
-	gman.add_planet(0, 30000, planet1.transform.origin)
-	gman.add_planet(1, 300, planet2.transform.origin)
-	planets.append(planet1)
-	planets.append(planet2)
-	planet2.apply_central_impulse(Vector3(0, 0, 8000))
-
-	# for node in get_node('.').get_children():
-	# 	if node.is_in_group("planets"):
-	# 		gman.add_planet(p_id, 20, node.transform.origin)
-	# 		planets.append(node)
-	# 		p_id += 1
 	
-	# var R = 100
-	# for _i in range(50):
-	# 	var theta1 = rng.randf_range(0, 2*PI)
-	# 	var theta2 = rng.randf_range(0, PI)
-	# 	var x = cos(theta1)*sin(theta2)*R
-	# 	var z = sin(theta1)*sin(theta2)*R
-	# 	var y = cos(theta2)*R
-	# 	var planet = planet_template.instance()
-	# 	planet.translation = Vector3(x,y,z)
-		
-	# 	gman.add_planet(p_id, rng.randf_range(10,20), Vector3(x,y,z))
-	# 	planets.append(planet)
-	# 	p_id += 1
-		
-	# 	add_child(planet)
-
-
+	for node in get_children():
+		if node.is_in_group("planets"):
+			node.id = p_id
+			gman.add_planet(p_id, node.mass, node.transform.origin, Vector3(0, 0, 0))
+			planets.append(node)
+			p_id += 1
+	
+	gman.set_planet_velocity(1, Vector3(0, 0, 1.2))
+	gman.set_planet_velocity(2, Vector3(0.8, 0, 0))
+	
+	# g = 2   ;   1 = 0,0,12   ;   2 = 8,0,0     ;    range = 12-16
+	
+	
+	gman.set_G(0.02)
+	
+	var R = 16000
+	
+	for i in range(2500):
+		var theta = rng.randf_range(0, 2*PI)
+		var asteroid = steroid_template.instance()
+		asteroid.translation = Vector3(cos(theta) * R, rng.randf_range(-400, 400), sin(theta) * R)
+		var speed = asteroid.translation.normalized().cross(Vector3(0, 1, 0)) * rng.randf_range(1.2, 1.6) + Vector3(0, rng.randf_range(-1, 1), 0)
+		gman.add_object(i, 0, asteroid.translation, speed)
+		add_child(asteroid)
+		objects.append(asteroid)
 
 func _process(delta):
+	gman.update(delta)
 	for i in range(planets.size()):
-		gman.set_planet_location(i, planets[i].translation)
-		var force = gman.force_of(i)
-		planets[i].apply_central_impulse(-0.2*delta*force)
+		planets[i].translation = gman.get_planet_location(i)
+	for i in range(objects.size()):
+		objects[i].translation = gman.get_object_location(i)
 
 onready var planet = get_node("Planet")
 

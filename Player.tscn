@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Camera.gd" type="Script" id=1]
-[ext_resource path="res://Character.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/Camera.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Character.gd" type="Script" id=3]
 [ext_resource path="res://Companion_bot/Companion_bot.tscn" type="PackedScene" id=4]
 [ext_resource path="res://ak47/AK47.tscn" type="PackedScene" id=5]
 
@@ -18,7 +18,7 @@ shape = SubResource( 1 )
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 0.966886, -0.026721, -0.253807, 0.0534444, 0.993653, 0.0989855, 0.249551, -0.109272, 0.962177, -0.243808, 4.5414, 4.27289 )
 fov = 90.0
-far = 250.0
+far = 50000.0
 script = ExtResource( 1 )
 
 [node name="AK 47" parent="." instance=ExtResource( 5 )]

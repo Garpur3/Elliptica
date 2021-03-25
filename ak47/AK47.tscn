@@ -59,7 +59,7 @@ transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.26, -0.349, -0.519 )
 [node name="RayCast" type="RayCast" parent="Model"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00508487, 1.22895, -4.43022 )
 enabled = true
-cast_to = Vector3( 0, 0, -200 )
+cast_to = Vector3( 0, 0, -50000 )
 
 [node name="Fire_gun" type="AudioStreamPlayer3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.26, 0.144257, 0.042305 )
@@ -90,7 +90,7 @@ spot_angle = 135.8
 [node name="FPS_camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.265, 0.283, -0.326 )
 fov = 60.0
-far = 350.0
+far = 70000.0
 
 [node name="Bullet_counter" type="Label" parent="."]
 margin_left = 930.0

@@ -22,8 +22,9 @@ func shoot():
 				gunfire.play()
 				if raycast.is_colliding():
 					var target = raycast.get_collider()
-					if target.is_in_group("Enemies"):
-						target.hit(raycast.get_collision_normal())
+					if target.is_in_group("planets"):
+						var gman = get_parent().get_parent().gman
+						gman.set_planet_velocity(target.id, gman.get_planet_velocity(target.id)  - raycast.get_collision_normal() * 0.1)
 				if focused:
 					model_animator.play("Focused_fire")
 				else:
