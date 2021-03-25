@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/LowPolyEarthNight.obj-b2d4572e2b4a50ecbcdb52dca1b8683a.mesh"
+
+[deps]
+
+files=[ "res://.import/LowPolyEarthNight.obj-b2d4572e2b4a50ecbcdb52dca1b8683a.mesh" ]
+
+source_file="res://LowPolyPlanetsPack/OBJ/LowPolyEarthNight.obj"
+dest_files=[ "res://.import/LowPolyEarthNight.obj-b2d4572e2b4a50ecbcdb52dca1b8683a.mesh", "res://.import/LowPolyEarthNight.obj-b2d4572e2b4a50ecbcdb52dca1b8683a.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/LowPolyMars.obj-0a10725a212ac02e90a366f2d8cac6de.mesh"
+
+[deps]
+
+files=[ "res://.import/LowPolyMars.obj-0a10725a212ac02e90a366f2d8cac6de.mesh" ]
+
+source_file="res://LowPolyPlanetsPack/OBJ/LowPolyMars.obj"
+dest_files=[ "res://.import/LowPolyMars.obj-0a10725a212ac02e90a366f2d8cac6de.mesh", "res://.import/LowPolyMars.obj-0a10725a212ac02e90a366f2d8cac6de.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

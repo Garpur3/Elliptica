@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/LowPolyJupiter.obj-8d01f7956cabe941c28c53128ac5bafa.mesh"
+
+[deps]
+
+files=[ "res://.import/LowPolyJupiter.obj-8d01f7956cabe941c28c53128ac5bafa.mesh" ]
+
+source_file="res://LowPolyPlanetsPack/OBJ/LowPolyJupiter.obj"
+dest_files=[ "res://.import/LowPolyJupiter.obj-8d01f7956cabe941c28c53128ac5bafa.mesh", "res://.import/LowPolyJupiter.obj-8d01f7956cabe941c28c53128ac5bafa.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

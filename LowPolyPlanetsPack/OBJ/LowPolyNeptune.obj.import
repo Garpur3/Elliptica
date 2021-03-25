@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/LowPolyNeptune.obj-1e61553e2b9baae2e6e67ed14075e49f.mesh"
+
+[deps]
+
+files=[ "res://.import/LowPolyNeptune.obj-1e61553e2b9baae2e6e67ed14075e49f.mesh" ]
+
+source_file="res://LowPolyPlanetsPack/OBJ/LowPolyNeptune.obj"
+dest_files=[ "res://.import/LowPolyNeptune.obj-1e61553e2b9baae2e6e67ed14075e49f.mesh", "res://.import/LowPolyNeptune.obj-1e61553e2b9baae2e6e67ed14075e49f.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

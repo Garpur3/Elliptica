@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/LowPolyEarthDay.obj-3ff20eed30c309d7e29a2c03e01615e5.mesh"
+
+[deps]
+
+files=[ "res://.import/LowPolyEarthDay.obj-3ff20eed30c309d7e29a2c03e01615e5.mesh" ]
+
+source_file="res://LowPolyPlanetsPack/OBJ/LowPolyEarthDay.obj"
+dest_files=[ "res://.import/LowPolyEarthDay.obj-3ff20eed30c309d7e29a2c03e01615e5.mesh", "res://.import/LowPolyEarthDay.obj-3ff20eed30c309d7e29a2c03e01615e5.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true
