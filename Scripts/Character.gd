@@ -1,19 +1,19 @@
 extends KinematicBody
 
-const gC = 0
 const move_force = 30
 const jump_force = 200
 
 var gravity = Vector3.DOWN
 var velocity = Vector3()
 
-onready var planet = get_parent().get_node("Planet")
+#onready var planet = get_parent().get_node("Planet")
 onready var camera1 = get_node("Camera")
 onready var gun1 = get_node("AK 47")
 	
+
+onready var main = get_parent()
 	
-	
-func fix_angle():
+func fix_angle(planet):
 	var planet_vector = (transform.origin - planet.transform.origin).normalized()
 	transform.basis.y = planet_vector
 	transform.basis.z = transform.basis.y.rotated(transform.basis.x, deg2rad(90))
@@ -21,35 +21,45 @@ func fix_angle():
 	transform = transform.orthonormalized()
 	
 	
-func _physics_process(_delta):
-	resolve_input()
-
-	velocity += get_relative_gravity()
-	move_and_slide(velocity)
-	fix_angle()
-	velocity = Vector3.ZERO
-
-func get_relative_gravity():
-	gravity = global_transform.origin.direction_to(planet.global_transform.origin)
-	return gC * gravity
+func _physics_process(delta):
+	resolve_input(delta)
 	
-func resolve_input():
-	velocity = Vector3.ZERO
+	var collision = move_and_collide(velocity * delta, false)
+	if collision:
+		velocity *= pow((0.995),(1/delta))#nuningur
+		fix_angle(collision.collider)
+
 	
-	if Input.is_action_pressed("m_up"):
-		velocity -= move_force* global_transform.basis.z
+var rdy = false
+func resolve_input(delta):
+	if not rdy:
+		main.add_object(self, 1, Vector3.ZERO)
+		rdy = true
+
+	var speed = 100
+	
+	if Input.is_action_pressed("m_forward"):
+		velocity -= transform.basis.z*delta*speed
 		
-	if Input.is_action_pressed("m_down"):
-		velocity += move_force* global_transform.basis.z
+	if Input.is_action_pressed("m_backward"):
+		velocity += transform.basis.z*delta*speed
 
 	if Input.is_action_pressed("m_left"):
-		velocity -= move_force* global_transform.basis.x
+		velocity -= transform.basis.x*delta*speed
 
 	if Input.is_action_pressed("m_right"):
-		velocity += move_force* global_transform.basis.x
+		velocity += transform.basis.x*delta*speed
+	
+	if Input.is_action_pressed("m_up"):
+		velocity += transform.basis.y*delta*speed
+		
+	if Input.is_action_pressed("m_down"):
+		velocity -= transform.basis.y*delta*speed
+		
+		
 	#jump:
-	if Input.is_action_just_pressed("m_jump"):
-		velocity += jump_force* global_transform.basis.y
+	#if Input.is_action_just_pressed("m_jump"):
+		#velocity += jump_force* global_transform.basis.y
 
 	if Input.is_action_just_pressed("aim"):
 		gun1.get_node("FPS_camera").make_current()

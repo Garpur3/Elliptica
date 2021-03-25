@@ -70,7 +70,7 @@ material/0 = ExtResource( 7 )
 environment = SubResource( 2 )
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
-transform = Transform( 0.986202, 0.0346678, 0.161876, 0, 0.977827, -0.209414, -0.165547, 0.206524, 0.964335, 0, 157.22, 0 )
+transform = Transform( 0.986202, 0.0346678, 0.161876, 0, 0.977827, -0.209414, -0.165547, 0.206524, 0.964335, 0, 162.022, 0 )
 
 [node name="SpotLight" type="SpotLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8436.03 )
