@@ -31,6 +31,7 @@ far = 50000.0
 [node name="Planet" parent="." groups=[
 "planets",
 ] instance=ExtResource( 3 )]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0, 0, 0 )
 mass = 6400.0
 
 [node name="CollisionShape" parent="Planet" index="0"]
