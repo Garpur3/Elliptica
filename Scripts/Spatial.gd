@@ -27,30 +27,29 @@ func _ready():
 			planets.append(node)
 			p_id += 1
 	
-	gman.set_planet_velocity(1, Vector3(0, 0, 20))
-	gman.set_planet_velocity(2, Vector3(0.8, 0, 0))
+	gman.set_planet_velocity(0, Vector3(250, 250, 0))
+	gman.set_planet_velocity(1, Vector3(300, 80, 0))
+	gman.set_planet_velocity(2, Vector3(300, 80, 0))
+	gman.set_planet_velocity(3, Vector3(350, 0, 0))
 	
 	# g = 2   ;   1 = 0,0,12   ;   2 = 8,0,0     ;    range = 12-16
 	
 	
-	gman.set_G(0.02)
+	gman.set_G(2)
 	
-	var R = 16000
+	var R = 4000
 	
-	for i in range(2500):
+	for i in range(500):
 		var theta = rng.randf_range(0, 2*PI)
 		var asteroid = steroid_template.instance()
 		asteroid.translation = Vector3(cos(theta) * R, rng.randf_range(-400, 400), sin(theta) * R)
-		var speed = asteroid.translation.normalized().cross(Vector3(0, 1, 0)) * rng.randf_range(1.2, 1.6) + Vector3(0, rng.randf_range(-1, 1), 0)
+		var velocity = asteroid.translation.normalized().cross(Vector3(0, 1, 0)) * rng.randf_range(390, 420) + Vector3(0, rng.randf_range(-1, 1), 0)
 		
-		add_object(asteroid, 1, speed)
-		#gman.add_object(i, 1, asteroid.translation, speed)
+		add_object(asteroid, 1, velocity)
 		add_child(asteroid)
-		#objects.append(asteroid)
 
 func _process(delta):
-	delta *= 0.01 
-	gman.update(delta)
+	gman.update(delta*0.2)
 	for i in range(planets.size()):
 		planets[i].translation = gman.get_planet_location(i)
 	for i in range(objects.size()):

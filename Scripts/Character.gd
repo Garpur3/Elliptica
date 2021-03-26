@@ -9,6 +9,9 @@ var velocity = Vector3()
 #onready var planet = get_parent().get_node("Planet")
 onready var camera1 = get_node("Camera")
 onready var gun1 = get_node("AK 47")
+
+var home_planet
+var flying = true
 	
 
 onready var main = get_parent()
@@ -24,10 +27,22 @@ func fix_angle(planet):
 func _physics_process(delta):
 	resolve_input(delta)
 	
+	
+	
 	var collision = move_and_collide(velocity * delta, false)
+	
+		
 	if collision:
-		velocity *= pow((0.995),(1/delta))#nuningur
+		#velocity *= pow((0.995),(1/delta))#nuningur
 		fix_angle(collision.collider)
+		home_planet = collision.collider
+		flying = false
+		
+	if !flying:
+		var offset_factor = transform.origin.distance_to(home_planet.transform.origin) - home_planet.get_node("MeshInstance").scale.x
+		print(offset_factor)
+		move_and_slide(transform.origin.direction_to(home_planet.transform.origin) * offset_factor * 0.5)
+		fix_angle(home_planet)
 
 	
 var rdy = false
@@ -49,12 +64,15 @@ func resolve_input(delta):
 
 	if Input.is_action_pressed("m_right"):
 		velocity += transform.basis.x*delta*speed
+	if Input.is_action_pressed("fly"):
+		flying = true
 	
-	if Input.is_action_pressed("m_up"):
-		velocity += transform.basis.y*delta*speed
-		
-	if Input.is_action_pressed("m_down"):
-		velocity -= transform.basis.y*delta*speed
+	if flying:
+		if Input.is_action_pressed("m_up"):
+			velocity += transform.basis.y*delta*speed
+			
+		if Input.is_action_pressed("m_down"):
+			velocity -= transform.basis.y*delta*speed
 		
 		
 	#jump:
@@ -63,7 +81,9 @@ func resolve_input(delta):
 
 	if Input.is_action_just_pressed("aim"):
 		gun1.get_node("FPS_camera").make_current()
+		get_node("Companion_bot").visible = false
 	if Input.is_action_just_released("aim"):
+		get_node("Companion_bot").visible = true
 		gun1.reset_rotation()
 		camera1.make_current()
 	if Input.is_action_just_pressed("focus"):
